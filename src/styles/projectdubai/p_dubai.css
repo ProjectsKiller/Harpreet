@@ -1,0 +1,345 @@
+@keyframes waviy {
+
+    0%,
+    40%,
+    100% {
+        transform: translateY(0)
+    }
+
+    20% {
+        transform: translateY(-20px)
+    }
+}
+
+#mainheading {
+    font-size: 15px;
+    font-weight: normal;
+    line-height: 25px;
+    letter-spacing: 0.2px;
+}
+
+
+
+body {
+    font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, sans-serif;
+}
+
+.roller {
+    height: 5.125rem;
+    /* line-height: 4rem; */
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    color: #1D3557;
+}
+
+.roller #rolltext {
+    color: #E9222F;
+    position: absolute;
+    top: 0;
+    /* animation: slide 2s infinite; */
+}
+
+@keyframes slide {
+    0% {
+        top: 1;
+    }
+
+    25% {
+        top: -0rem;
+    }
+
+    50% {
+        top: -4rem;
+    }
+
+    72.5% {
+        top: -8.25rem;
+    }
+}
+
+#title {
+    color: #404952 !important;
+    line-height: 2;
+    float: left;
+    background: #f6f4f2 !important;
+    padding: 3px !important;
+    border-radius: 100% !important;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    font-size: 28px;
+    font-weight: 600;
+    width: 55px !important;
+    height: 55px !important;
+}
+
+#maintitle {
+    color: #000 !important;
+    font-size: 24px;
+    line-height: 32px;
+    font-weight: 600;
+    padding-left: 15px;
+    width: calc(100% - 15px);
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    /* overflow: hidden; */
+    white-space: nowrap;
+    max-width: 100%;
+    display: block;
+}
+
+#sup {
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    color: #000 !important;
+    margin-top: 0.8em;
+    font-size: 27px;
+    line-height: 0;
+    /* position: relative; */
+}
+
+#reviewprice {
+    font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    margin-top: 0;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+}
+
+#reviewloaction {
+    color: #000 !important;
+    white-space: normal;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 28px;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.status {
+    color: #737373 !important;
+    padding-right: 5px;
+    font-weight: normal;
+    font-size: 18px;
+}
+
+.statusdetails {
+    font-size: 20px;
+}
+
+.btnmaindiv {
+    margin-left: -16px;
+    position: absolute;
+    bottom: 0;
+    background: #f6f4f2 !important;
+    width: 376px;
+    margin-top: 200px;
+    padding: 15px;
+}
+
+#contact1,
+#contact2 {
+
+    box-shadow: 0 0 !important;
+    border: 1px solid #000 !important;
+    background: #000 !important;
+    padding: 10px !important;
+    margin: 0 0 5px 3px;
+    /* min-width: 48%; */
+    border-radius: 50px;
+    padding: 1px;
+    height: 40px;
+    border-radius: 30px;
+}
+
+#contact1 {
+    /* animation: waviy 5s infinite;
+    animation-delay: calc(.1s * var(--i)); */
+}
+
+#contact2 {
+    /* animation: waviy 10s infinite;
+    animation-delay: calc(.1s * var(--i)); */
+}
+
+#contact::before {
+    color: firebrick;
+    content: "\f095";
+    /* content: "\03a8" */
+}
+
+
+
+/* #parentdiv {} */
+
+
+
+#linkmainheading {
+    font-size: 50px;
+    line-height: 52px;
+    font-weight: 700;
+    color: #000 !important;
+}
+
+#cardimage {
+    width: 700px;
+    height: 400px;
+}
+
+#desccontent {
+    border: none;
+    margin-left: 65%;
+    height: 100%;
+    width: 35%;
+
+}
+
+#dhubaicontainer {
+    width: 1170px;
+}
+d6
+
+#maincarddiv {
+    margin-left: 20px;
+    margin-top: 10px;
+    width: 1080px;
+    box-shadow: 8px 8px 20px 2px rgb(182, 182, 182);
+}
+
+
+@media screen and (min-width:968px) and (max-width:1200px) {
+    #cardimage {
+        width: 500px;
+    }
+
+    #desccontent {
+        margin-left: 60%;
+    }
+
+    #maincarddiv {
+        width: 900px;
+    }
+
+    .btnmaindiv {
+        margin-left: -52px;
+        width: 395px;
+    }
+}
+
+/* @media screen and (min-width:768px) and (max-width:968px) {
+    #cardimage {
+        width: 400px;
+        height: 300px;
+    }
+
+    #desccontent {
+        margin-left: 45%;
+    }
+
+    #maincarddiv {
+        border: 2px solid red;
+        width: 750px;
+    }
+
+    .btnmaindiv {
+        margin-left: -52px;
+        width: 395px;
+    }
+} */
+
+@media screen and (min-width:500px) and (max-width:768px) {
+    #cardimage {
+        width: 470px;
+    }
+
+    #desccontent {
+        width: 470px;
+        margin-left: 0%;
+        margin-top: 400px;
+        height: 300px;
+    }
+
+    #maincarddiv {
+        margin: auto;
+        width: 470px;
+        height: 700px;
+    }
+
+    #contact1,
+    #contact2 {
+        width: 180px;
+    }
+
+    .btnmaindiv {
+        justify-content: center;
+        position: absolute;
+        bottom: 0;
+        background: #f6f4f2 !important;
+        width: 467px;
+        margin-top: 10px;
+        padding: 15px;
+    }
+
+    #maintitle {
+        
+        margin-top: 5px;
+        font-size: 40px;
+        margin-bottom: 15px;
+    }
+
+    #reviewloaction {
+        width: 300px;
+        font-size: 25px;
+        color: #d4d4d4;
+    }
+}
+
+@media screen and (min-width:768px) and (max-width:968px) {
+    #cardimage {
+        width: 430px;
+    }
+
+    #desccontent {
+        padding-top: 30px;
+        margin-left: 58%;
+    }
+
+    #maincarddiv {
+        margin-left: -25px;
+        width: 750px;
+    }
+
+    #contact1,
+    #contact2 {
+        margin: auto;
+        width: 200px;
+    }
+
+    .btnmaindiv {
+        position: absolute;
+        bottom: 0;
+        background: #f6f4f2 !important;
+        width: 315px;
+        height: 90px;
+        margin-top: 100px;
+        padding: 5px;
+    }
+}

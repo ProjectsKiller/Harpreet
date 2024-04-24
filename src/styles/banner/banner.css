@@ -1,0 +1,258 @@
+@font-face {
+    font-family: Raine-HorneLight;
+    src: url(/public/Font/Raine-HorneLight.otf);
+}
+
+@font-face {
+    font-family: Raine-HorneRegular;
+    src: url(/public/Font/Raine-HorneRegular.otf);
+}
+
+#propertytypeid {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9" stroke="grey"></polyline></svg>');
+    background-repeat: no-repeat;
+    background-position: right 8px top 50%;
+    background-size: 28px 21px;
+}
+
+  
+
+.main-banner-heading {
+    margin-top: 150px;
+    font-size: 50px;
+    color: #fff;
+    font-weight: 400;
+    font-family: Raine-HorneRegular;
+}
+
+#main-banner-subdetails {
+    max-width: 650px !important;
+    font-family: Raine-HorneLight;
+    font-size: 19px;
+    color: white;
+    margin: auto;
+    letter-spacing: 0.5px;
+    text-align: center;
+}
+
+#main-banner-div {
+    position: absolute;
+    margin: auto;
+    width: 100%;
+    height: 460px;
+    /* border: 2px solid red; */
+    /* margin-top: 150px; */
+}
+
+.meet-team-ban,
+.about-ban,
+.mort-ban,
+.advisory-ban,
+.career-ban,
+.blog-ban,
+.cont-back,
+.testimonials-ban,
+.why-ban,
+.offplan-ban,
+.offices-ban,
+.propertymanagment-ban,
+.sale-ban {
+    height: 460px;
+    text-align: center;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100% 460px;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin: 0px;
+}
+
+
+@media only screen and (max-width:768px) {
+    ul.list-advisory.all-sub-heading.centerd {
+        margin-left: 0px !important;
+    }
+    .accordian-details.all-para.accordion-body {
+        margin-top: 10px !important;
+    }
+    div#faq-main-div {
+        padding: 10px 0px !important;
+    }
+    section.ftco-section .col-6 #map {
+     margin-top: 10px !important;
+    }
+
+    section.ftco-section .col-6 {
+        width: 100% !important;
+    }
+
+    div#mainfooterdiv {
+        width: 90% !important;
+    }
+
+    .row.p-0.align-items-center {
+        width: 95% !important;
+    }
+
+    p#main-banner-subdetails {
+        width: 100% !important;
+    }
+
+    p.property-m-details.all-para {
+        transform: none !important;
+    }
+
+    p#seel-property-para-thinking {
+        margin: 0px !important;
+        padding: 0px !important;
+        width: 100% !important;
+    }
+
+    .col-md-12.col-sm-7.col-xs-12 form {
+        margin-top: 20px !important;
+        padding-left: 0px !important;
+    }
+
+    .about-ban,
+    .advisory-ban,
+    .blog-ban,
+    .career-ban,
+    .cont-back,
+    .meet-team-ban,
+    .mort-ban,
+    .offices-ban,
+    .offplan-ban,
+    .propertymanagment-ban,
+    .sale-ban,
+    .testimonials-ban,
+    .why-ban {
+        height: 300px !important;
+    }
+
+    p#main-banner-subdetails {
+        font-size: 16px !important;
+        padding: 0px 9px;
+    }
+
+    h2.main-banner-heading {
+        margin-top: 55px !important;
+    }
+
+    div#main-banner-div {
+        /* height: 300px !important; */
+        padding: 10px !important;
+    }
+
+    h2.main-banner-heading {
+        font-size: 35px !important;
+    }
+
+    h2.all-main-heading {
+        font-size: 25px !important;
+    }
+
+    p.text-justify.all-para {
+        font-size: 16px !important;
+        text-align: left !important;
+    }
+
+    select#sel1 {
+        width: 93% !important;
+    }
+
+}
+
+.meet-team-ban {
+    background-image: url(https://www.masala.com/cloud/2021/07/28/MNM6zwR4-burj.jpg-1.jpg);
+}
+
+.career-ban {
+    background-image: url(/public/images/car.png);
+}
+
+.blog-ban {
+    background-image: url(/public/images/car.png);
+}
+
+
+
+.testimonials-ban {
+    background-image: url(/public/images/ms.png);
+}
+
+.why-ban {
+    background-image: url(/public/images/whyusban.png);
+}
+
+
+
+.offplan-ban {
+    background-image: url(/public/images/back.jpg);
+}
+
+.offices-ban {
+    background-image: url(/public/images/back.jpg);
+}
+
+.all-main-heading {
+    font-size: 35px;
+    font-family: Raine-HorneRegular;
+    color: #4e5158 !important;
+    font-weight: 500 !important;
+}
+
+.all-sub-heading {
+    font-weight: 500;
+    text-align: center;
+    font-family: Raine-HorneRegular;
+    font-size: 20px;
+    letter-spacing: 1px;
+    color: #504d4f;
+}
+
+.all-para {
+    font-size: 16px;
+    font-weight: 400;
+    font-family: Raine-HorneLight;
+    color: #212529;
+}
+
+.banner-container {
+    position: relative;
+}
+
+.banner-image {
+    width: 100%;
+    height: auto;
+}
+
+.banner-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #fff;
+    /* Adjust text color as needed */
+}
+
+@media only screen and (min-width:480px) and (max-width:768px){
+    .internal-card-text> .gjs-cell{
+        /* border:2px solid red; */
+        min-height: 30px !important ;
+    }
+    .redu-left{
+        margin-left: 5px !important;
+    }
+    .photo-margin-top{
+        margin-top: 10px !important;
+    }
+ 
+    .nakheel-dev{
+     padding-left: 220px !important;
+    }
+}

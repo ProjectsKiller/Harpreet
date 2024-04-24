@@ -1,0 +1,307 @@
+@font-face {
+    font-family: Raine-HorneLight;
+    src: url(/public/Font/Raine-HorneLight.otf);
+}
+
+@font-face {
+    font-family: Raine-HorneRegular;
+    src: url(/public/Font/Raine-HorneRegular.otf);
+}
+
+#about-parent-div {
+    padding-top: 70px;
+    margin-top: 60px;
+    margin-bottom: 40px;
+    height: auto;
+    width: 100%;
+    margin: auto;
+}
+
+.main-about-div {
+    padding: 0;
+    margin: auto;
+    width: 87%;
+    /* margin-left: 100x; */
+    /* margin-right: 100px; */
+}
+
+#about-us-img {
+    width: 500px;
+    height: 345px;
+}
+
+.about-us-details {
+    text-align: justify;
+}
+
+.about-us-details-more {
+    text-align: justify;
+
+}
+
+.blue-round-content {
+    height: 180px;
+    display: inline-flex;
+    justify-content: center;
+    margin: auto;
+    margin-top: 30px;
+    padding-top: 70px;
+    width: 180px;
+    background-image: linear-gradient(to right, #f99e1c 50%, #fec607);
+    border-radius: 100%;
+}
+
+.card-body-aboutus {
+    margin: auto;
+    margin-top: 15px;
+    width: 85%;
+    text-align: center;
+}
+
+.main-cards {
+    height: auto;
+    border: none;
+}
+
+.col-main {
+    width: 350px;
+}
+
+#myteam {
+    width: 100%;
+}
+
+.my-team-content {
+    width: 50%;
+    height: 500px;
+    border: 1px solid rgb(0, 0, 0);
+}
+
+.my-ser-details {
+    height: 100px;
+    overflow: hidden;
+    text-align: justify;
+}
+
+.our-ser-divs {
+
+    border: none;
+    width: 22rem;
+    height: 180px;
+    margin-bottom: 20px;
+}
+
+#our-ser-cards-img {
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.our-ser-image {
+    width: 500px;
+    height: 590px;
+    margin-left: 80px !important;
+    margin-right: 80px !important;
+}
+
+#map-contant {
+    border: none;
+    width: 90%;
+    margin: auto;
+    margin-top: 100px;
+    height: 500px;
+    background: transparent !important;
+    color: white;
+}
+
+.map-contant-details {
+    margin-top: 50px;
+    overflow: hidden;
+    height: 300px !important;
+}
+
+#our-offices-main {
+    margin-top: -50px;
+    padding-top: 50px;
+    /* background-color: brown; */
+    background-image: linear-gradient(to right, #f99e1c 50%, #fec607)
+}
+
+/* .slider-arrow {
+    position: absolute;
+    z-index: 1;
+    height: 100%;
+    width: 100%;
+  }
+  
+  .arrow-btn {
+    top: 45%;
+  } */
+
+.slick-prev {
+    /* Add your custom styles here */
+    background-color: #bcbcbc;
+    border-radius: 100px;
+    /* color: rgb(238, 5, 5); */
+}
+
+
+.slick-next {
+    /* Add your custom styles here */
+    background-color: #bcbcbc;
+    border-radius: 100px;
+}
+
+
+
+#our-card-div {
+    border: none;
+    margin: 0px 30px;
+    width: 285px;
+    height: 400px;
+}
+
+#suggestion-box {
+    margin: auto;
+    padding-top: 40px !important;
+    width: 98%;
+    /* box-shadow: 0.5px 1px 8px 8px rgb(188, 188, 188); */
+    border: 1px solid black;
+}
+
+#moreabout {
+    color: #fcaf17;
+}
+
+#moreabout:hover {
+    color: grey;
+
+}
+
+#closemoreabout {
+    color: #fcaf17;
+}
+
+#closemoreabout :hover {
+    color: grey;
+}
+
+.v-m-div {
+    padding: 50px;
+    margin: auto;
+    text-align: center;
+}
+
+
+.our-services {
+    width: 350px;
+    height: 200px;
+    text-align: center;
+    justify-content: center;
+    background-image: linear-gradient(to right, #ffffff 50%, #ffffff);
+    border-radius: 30px;
+    border: 1px solid rgb(228, 228, 228);
+    cursor: pointer;
+    margin: 80px auto;
+}
+
+.our-services h3 {
+    margin: auto;
+    margin-top: 30px;
+
+}
+
+.our-services:hover {
+    /* box-shadow: 0.5px 0.6px 8px 8px rgb(182, 182, 182); */
+}
+
+#contact-form {
+    border: 1px solid rgba(234, 227, 227, 0.893);
+    border-radius: 10px;
+}
+
+
+.form-check-input[type=checkbox] {
+    border-radius: 0.25em;
+}
+
+.form-check .form-check-input {
+    float: left;
+    margin-left: -1.5em;
+}
+
+#policy1 {
+    text-align: justify;
+}
+
+#contact-us-main {
+    margin: auto;
+    background: #e8e8e9;
+    width: 90%;
+    height: 550px;
+}
+
+.contact-us-details {
+    text-align: center !important;
+    margin-top: 20px !important;
+    font-size: 18px;
+    /* line-height: 30px; */
+    /* letter-spacing: 2px; */
+}
+
+.custom-checkbox {
+    background-color: lightgray;
+    color: red;
+    font-weight: bold;
+}
+
+#testing {
+    width: 50px !important;
+}
+
+.contactush1 {
+    font-size: 50px;
+}
+
+.about-contact-form {
+    /* border: 1px solid #b5b5b5; */
+    border-radius: 50px;
+    height: 45px;
+}
+
+.about-contact-form-input {
+    padding-top: 5px !important;
+    height: 10px !important;
+    min-height: 40px !important;
+}
+
+
+#seel-property-para-thinking {
+    margin-top: -10px;
+}
+
+#about-us-banner {
+    color: #fff;
+}
+
+@media screen and (min-width: 1080px) and (max-width: 1250px) {
+    .our-services {
+        width: 300px;
+    }
+}
+
+@media screen and (min-width: 997px) and (max-width: 1080px) {
+    .our-services {
+        width: 250px;
+        height: 220px;
+    }
+}
+
+@media screen and (min-width: 330px) and (max-width: 745px) {
+    .our-services {
+        width: 250px;
+        height: 220px;
+        margin: 50px auto;
+    }
+
+}

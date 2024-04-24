@@ -1,0 +1,44 @@
+.contact1 .info {
+    padding: 40px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+  }
+  
+  .contact1 .info h3 {
+    font-weight: 600;
+    font-size: 24px;
+  }
+  
+  .contact1 .info-item+.info-item {
+    padding-top: 20px;
+    border-top: 1px solid rgba(var(--color-secondary-rgb), 0.15);
+    margin-top: 12px;
+  }
+  
+  .contact1 .info-item i {
+    font-size: 24px;
+    color: #fcaf17;
+    transition: all 0.3s ease-in-out;
+    margin-right: 20px;
+  }
+
+  
+  .contact1 .info-item p {
+      padding: 0;
+      margin-bottom: 0;
+  } 
+  .subbtn input[type="submit"] {
+      background: #fcaf17;
+      color: #fff;
+      border: none;
+      padding: 10px 30px;
+      border-radius: 5px;
+      font-size: 20px;
+  }
+  .subbtn {
+      margin-top: 20px;
+  }
+  @media screen and (min-width: 330px) and (max-width: 745px) {
+ 
+
+  }

@@ -1,0 +1,1222 @@
+import React, { useEffect, useState, useRef, useLayoutEffect } from 'react';
+import { useParams } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
+import Select from 'react-select';
+import Countries from '../components/CountryInfo';
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import "slick-carousel";
+import $ from 'jquery';
+// import "../styles/banner/banner.css"
+import "../styles/banner/banner.css"
+// import "../styles/blog/model.css";
+// import "../styles/blog/model.css"
+import Swal from 'sweetalert2';
+import axios from 'axios';
+import { countries } from 'country-flag-icons';
+
+const YourModalComponent = ({ isOpen, gallarydata, onClose }) => {
+    const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+
+    const h3Ref = useRef(null);
+
+    let picsData = [];
+    if (gallarydata[0] && gallarydata[0].pics) {
+        // Check if Editdata[0].pics is a string
+        if (typeof gallarydata[0].pics === 'string') {
+            // Convert the string to an array using JSON.parse
+            gallarydata[0].pics = JSON.parse(gallarydata[0].pics);
+        }
+
+        // Use the map method on the array
+        picsData = gallarydata[0].pics.map(image => ({
+            id: image.id,
+            name: image.name,
+            url: `uploads/${image.name}`
+        }));
+    }
+
+    const firstImageId = picsData.length > 0 ? picsData[0].id : 'No Image';
+
+    const goToNextImage = () => {
+        setCurrentImageIndex((prevIndex) => (prevIndex + 1) % picsData.length);
+    };
+
+    const goToPreviousImage = () => {
+        setCurrentImageIndex((prevIndex) =>
+            prevIndex === 0 ? picsData.length - 1 : prevIndex - 1
+        );
+    };
+
+    return (
+        <>
+
+
+            {isOpen && (
+                <div className="modal-overlay" >
+                    <div className="modal-content" style={{ borderRadius: "0px" }}>
+                        <button onClick={onClose} className="close-button" style={{ textAlign: "right", background: "transparent", fontSize: "20px" }}>
+                            &#10006; {/* Close symbol (X) */}
+                        </button>
+                        <div style={{ display: 'flex', justifyContent: 'space-between', width: '80%', margin: 'auto' }}>
+                        </div>
+                        <div className="image-gallery" style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+                            <button onClick={goToPreviousImage} className="nav-button" style={{ fontSize: "25px", background: "transparent" }}>
+                                &#x2B9C; {/* Left arrow */}
+                            </button>
+
+
+                            <img
+                                style={{ width: '450px', height: '320px', borderRadius: "0px", marginBottom: "30px" }}
+                                src={picsData[currentImageIndex]?.url}
+                                alt={`Image ${currentImageIndex}`}
+                            />
+
+
+
+                            <button onClick={goToNextImage} className="nav-button" style={{ fontSize: "25px", background: "transparent" }}>
+                                &#x2B9E; {/* Right arrow */}
+                            </button>
+                        </div>
+
+                    </div>
+                </div>
+            )}
+        </>
+    );
+};
+
+
+
+const DynamicPage = () => {
+    const { pageUrl } = useParams();
+    const [htmlContent, setHtmlContent] = useState('');
+    const [cssContent, setCssContent] = useState('');
+    const [isLoading, setIsLoading] = useState(true);
+    const [error, setError] = useState(null);
+    const contentRef = useRef(null); // Ref to the content container
+    const [pagetype, setpagetype] = useState('');
+    // Initialize selectedCountry with the first country's code
+    const [selectedCountry, setSelectedCountry] = useState('+971');
+
+
+
+    const createMarkup = (html) => ({ __html: html });
+
+
+    const [seoData, setSeoData] = useState({
+        title: '',
+        description: '',
+        keywords: ''
+    });
+    const [blogData, setBlogData] = useState(null);
+    const [isModelOpen, setIsModelOpen] = useState(false);
+    const [gallarydata, setGallaryData] = useState([]);
+    const [newhtml, setNewhtml] = useState('');
+    const [newcss, setNewcss] = useState('');
+
+    const selectRef = useRef(null);
+    const handleCloseModal = () => {
+        setIsModelOpen(false);
+    };
+
+    const formatDate = (dateString) => {
+        const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+        return new Date(dateString).toLocaleDateString('en-US', options);
+    };
+    const transformContentUrls = (htmlContent) => {
+        // Example transformation logic here
+        // You might use a library like DOMPurify for a robust solution
+        const baseUrl = '/'; // Adjust to your server's base URL
+        const updatedContent = htmlContent.replace(/src="\/(.*?)"/g, `src="${baseUrl}$1"`);
+        return updatedContent;
+    };
+
+
+    useEffect(() => {
+        // Fetch HTML content
+        fetch(`/uploads/page_${pageUrl}.html`)
+            .then(response => response.text())
+            .then(data => setNewhtml(data))
+            .catch(error => console.error('Error fetching HTML:', error));
+
+        // Fetch CSS content
+        fetch(`/uploads/page_${pageUrl}.css`)
+            .then(response => response.text())
+            .then(data => setNewcss(data))
+            .catch(error => console.error('Error fetching CSS:', error));
+    }, [pageUrl]);
+    const [contentRefReady, setContentRefReady] = useState(false);
+
+    const [runEffect, setRunEffect] = useState(false);
+
+    const handlePaymentClick = () => {
+        setRunEffect(true);
+
+        const paymentRowElement = document.getElementById('paymentrow');
+        if (paymentRowElement) {
+            paymentRowElement.scrollIntoView({ behavior: 'smooth' });
+        }
+    };
+
+    useEffect(() => {
+        if (htmlContent) {
+
+            // Parse the HTML string
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(htmlContent, 'text/html');
+
+            // Find the div with id "payment"
+            const paymentElement = document.getElementById('payment');
+
+            if (paymentElement) {
+                paymentElement.style.cursor = 'pointer';
+                paymentElement.addEventListener('click', handlePaymentClick);
+
+                // Cleanup the event listener when the component unmounts
+                return () => {
+                    paymentElement.removeEventListener('click', handlePaymentClick);
+                };
+            }
+        }
+    }, [runEffect]);
+
+    useEffect(() => {
+        setIsLoading(true);
+        setError(null);
+        fetch(`http://localhost:4000/api/pagedata/${pageUrl}`)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! Status: ${response.status}`);
+                }
+                return response.json();
+            })
+            .then(data => {
+                if (data.type == "pages") {
+                    setHtmlContent(data.fileurl);
+                    setCssContent(data.cssurl);
+                    setSeoData({
+                        title: data.seoTitle,
+                        description: data.metaDescription,
+                        keywords: data.keywords
+                    });
+                    setpagetype("pages");
+
+
+                }
+                else if (data.type == "blogs") {
+                    setBlogData(data);
+                    setSeoData({
+                        title: data.seo_title,
+                        description: data.description,
+                        keywords: data.meta_keywords
+                    });
+                    setpagetype("blogs");
+
+                }
+                else {
+                    throw new Error('Invalid data structure from API');
+                }
+            })
+            .catch(error => {
+                console.error('Error fetching page:', error);
+                setError(error);
+            })
+            .finally(() => setIsLoading(false));
+    }, [pageUrl]);
+
+    useEffect(() => {
+        if (htmlContent && !isLoading) {
+            setTimeout(initializeSlider, 500); // Delay the initialization
+        }
+    }, [htmlContent, isLoading]);
+
+    // Initialize the slider
+    const initializeSlider = () => {
+        if (contentRef.current) {
+            $(contentRef.current).find('.testimonials-slider').slick({
+                // Slider settings
+                dots: true,
+                infinite: true,
+                speed: 500,
+                slidesToShow: 1,
+                slidesToScroll: 1
+            });
+        }
+    };
+    // Add form submission handling
+
+    // useEffect(() => {
+    //     const selectRef = document.querySelector('.showflag');
+    //     console.log(selectRef,"jkh");
+    //     if (selectRef) {
+    //         selectRef.querySelectorAll('option').forEach(option => {
+    //             const name = option.getAttribute('name');
+    //             const country = Countries.find(country => country.name === name);
+    //             if (country) {
+    //                 const image = document.createElement('img');
+    //                 image.src = country.image;
+    //                 image.alt = country.name;
+    //                 image.className = 'flag-icon';
+    //                 option.appendChild(image);
+    //             }
+    //         });
+    //     }
+    // },[Countries]); // Re-run the effect whenever Countries changes
+
+    useEffect(()=>{
+
+        const getdiv=document.getElementsByClassName('empty-div');
+        console.log(getdiv[0],"lkhlsd");
+
+    },[Countries])
+    
+    useEffect(() => {
+        if (!isLoading && contentRef.current) {
+            const forms = contentRef.current.querySelectorAll('form');
+            forms.forEach(form => {
+                form.addEventListener('submit', handleFormSubmit);
+            });
+        }
+
+        // if (contentRef.current) {
+        //  console.log("Coming in if");
+        //  const selectElement = contentRef.current.querySelector('#countrySelect');
+        //  console.log("selectElement",selectElement);
+        //     if (selectElement) {
+        //         // Hide the original select
+        //         selectElement.style.display = 'none';
+        //         // Create a custom dropdown container
+        //         const dropdownContainer = document.createElement('div');
+        //         dropdownContainer.className = 'custom-dropdown';
+        //         dropdownContainer.style.position = 'relative';
+
+        //         // Create a display area for selected option
+        //         const selectedOptionDisplay = document.createElement('div');
+        //         selectedOptionDisplay.className = 'selected-option';
+        //         selectedOptionDisplay.style.cursor = 'pointer';
+        //         selectedOptionDisplay.style.display = 'flex';
+        //         selectedOptionDisplay.style.alignItems = 'center';
+        //         selectedOptionDisplay.style.justifyContent = 'space-between';
+        //         selectedOptionDisplay.innerHTML = `
+        //             <img src="${Countries[1].image}" alt="${Countries[1].name}" class="country-flag" />
+        //                                <span class="dropdown-arrow">&#9660;</span>  <!-- This is the arrow icon -->
+        //         `;
+        //         dropdownContainer.appendChild(selectedOptionDisplay);
+
+        //         // Create a dropdown list
+        //         const dropdownList = document.createElement('div');
+        //         dropdownList.className = 'dropdown-list';
+        //         dropdownList.style.position = 'absolute';
+        //         dropdownList.style.zIndex = '10';
+        //         dropdownList.style.display = 'none'; // Initially hidden
+        //         dropdownContainer.appendChild(dropdownList);
+
+        //         // Populate dropdown list with options
+        //         Countries.forEach((country, index )=> {
+        //             const optionDiv = document.createElement('div');
+        //             optionDiv.className = 'dropdown-option';
+        //             optionDiv.innerHTML = `
+        //             <img src="${country.image}" alt="${country.name}" class="country-flag" />
+        //             ${country.name} (${country.phone})
+        //         `; optionDiv.onclick = () => {
+        //                  selectedOptionDisplay.innerHTML = '';
+
+        //                 // Create a new image element for the country flag
+        //                 const imgElement = document.createElement('img');
+        //                 imgElement.src = country.image;
+        //                 imgElement.alt = country.name;
+        //                 imgElement.classList.add('country-flag');
+        //                 selectedOptionDisplay.appendChild(imgElement);
+
+        //                 // Create a new text node for the country name and phone
+        //                 const textNode = document.createTextNode(` (${country.phone})`);
+        //                 selectedOptionDisplay.appendChild(textNode);
+
+        //                 // Set the value of the original select element
+        //                 selectElement.value = country.phone;
+
+        //                 setSelectedCountry(country.phone[0])
+
+
+        //                 // Hide the dropdown list
+        //                 dropdownList.style.display = 'none';
+
+        //             };
+        //              // Set the first country as the default selected option
+        //              if (index === 1) {
+        //                 optionDiv.classList.add('selected');
+
+        //                 // setSelectedCountry(country.phone[0])
+        //             }
+
+        //             dropdownList.appendChild(optionDiv);
+        //         });
+
+        //         // Toggle dropdown list visibility
+        //         selectedOptionDisplay.onclick = () => {
+        //             dropdownList.style.display = dropdownList.style.display === 'none' ? 'block' : 'none';
+        //         };
+
+        //         // Insert the custom dropdown after the original select element
+        //         selectElement.parentNode.insertBefore(dropdownContainer, selectElement.nextSibling);
+        //     }
+        // }
+
+        // Clean up
+        return () => {
+            if (contentRef.current) {
+                const forms = contentRef.current.querySelectorAll('form');
+
+                forms.forEach(form => {
+                    form.removeEventListener('submit', handleFormSubmit);
+                });
+            }
+        };
+    }, [isLoading, contentRef]);
+
+    const selectedCountryRef = useRef(selectedCountry);
+    useEffect(() => {
+        selectedCountryRef.current = selectedCountry;
+    }, [selectedCountry]);
+
+    const handleFormSubmit = (event) => {
+        event.preventDefault();
+        // Get the form data
+        const formData = new FormData(event.target);
+        formData.append('countryCode', selectedCountryRef.current);
+        if (pageUrl === 'sale') {
+            formData.append('frompage', 'List Your Property');
+        }
+        else {
+            formData.append('frompage', pageUrl);
+        }
+        const data = {};
+
+        // Iterate over form data and populate the data object
+        formData.forEach((value, key) => {
+            data[key] = value;
+        });
+
+        // Validate form fields
+
+
+
+        // If the form is valid, send data to the backend
+        fetch('http://localhost:4000/api/submit-form', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data)
+        })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! Status: ${response.status}`);
+                }
+                return response.json();
+            })
+            .then(() => {
+                Swal.fire({
+                    title: 'Success!',
+                    text: 'Form submitted successfully',
+                    icon: 'success',
+                    confirmButtonText: 'Ok'
+                });
+            })
+            .catch(error => {
+                console.error('Error submitting form:', error);
+                alert('Error submitting form');
+            });
+
+    };
+
+
+    useEffect(() => {
+        const handlePicClick = (event) => {
+            const target = event.target;
+
+            // Check if the clicked element has a class starting with 'pic'
+            if (target.classList.contains('pic')) {
+                // Get pageUrl and make axios call
+                let data = { 'pageUrl': pageUrl }; // Assuming the class itself is the pageUrl
+                console.log(data, "data for backend");
+                axios.post(`http://localhost:4000/opengallary`, data).then((res) => {
+                    console.log(res.data, "data from backend")
+                    setGallaryData(res.data);
+                });
+
+                // Open the gallery modal
+                setIsModelOpen(true);
+            }
+        };
+
+        if (newhtml) {
+            // Parse the HTML string
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(newhtml, 'text/html');
+
+            // Attach click event handler to the document (event delegation)
+            document.addEventListener('click', handlePicClick);
+        }
+
+        // Cleanup event listener when component unmounts or when new HTML is received
+        return () => {
+            document.removeEventListener('click', handlePicClick);
+        };
+    }, [newhtml, pageUrl]);
+
+
+
+
+
+    useEffect(() => {
+        const handleGalleryClick = () => {
+            const galleryRowDiv = document.getElementById('gallaryrow');
+            if (galleryRowDiv) {
+                // Smooth scroll to the galleryrow
+                galleryRowDiv.scrollIntoView({
+                    behavior: 'smooth'
+                });
+            }
+        };
+        //   const handlePicsClick = () => {
+        //       alert("cliked")
+        //       let data = { 'pageUrl': pageUrl };
+        // console.log(data,"pageurl");
+        //       axios.post(`/opengallary`, data).then((res) => {
+        //           setGallaryData(res.data);
+        //       });
+        //       setIsModelOpen(true);
+        //   };
+
+        if (newhtml) {
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(newhtml, 'text/html');
+
+            const galleryDiv = document.getElementById('gallary');
+            const picsDiv = doc.querySelector('.pics');
+
+            if (galleryDiv) {
+                galleryDiv.addEventListener("click", handleGalleryClick);
+            } else {
+                console.log('Div with id "gallary" not found.');
+            }
+
+            // if (picsDiv) {
+            //     picsDiv.addEventListener("click", handlePicsClick);
+            // } else {
+            //     console.log('Div with class "pics" not found.');
+            // }
+        } else {
+            console.log('htmlContent is empty or falsy.');
+        }
+    }, [newhtml, pageUrl, setGallaryData, setIsModelOpen]);
+
+
+
+
+    useEffect(() => {
+        const attachClickListener = (divId, rowId) => {
+            // Find the div with the specified ID
+            const div = document.getElementById(divId);
+
+            // Check if the div exists
+            if (div) {
+                // Set the cursor to 'pointer'
+                div.style.cursor = 'pointer';
+
+                // Add a click event listener to the div
+                div.addEventListener("click", function () {
+                    const rowDiv = document.getElementById(rowId);
+                    if (rowDiv) {
+                        rowDiv.scrollIntoView({ behavior: 'smooth' });
+                    } else {
+                        console.log(`Div with id "${rowId}" not found.`);
+                    }
+                });
+            } else {
+                console.log(`Div with id "${divId}" not found.`);
+            }
+        };
+
+        if (newhtml) {
+            // Attach click listener for "payment" div
+            attachClickListener('payment', 'paymentrow');
+
+            // Attach click listener for "location" div
+            attachClickListener('location', 'locationrow');
+        }
+    }, [newhtml]);
+    if (isLoading) {
+        return <div>Loading...</div>;
+    }
+
+    if (error) {
+        return <div>Error loading the page: {error.message}</div>;
+    }
+
+
+
+
+
+    return (
+        <div className='row mar0'>
+            <Helmet>
+                <title>{seoData.title}</title>
+                <meta name="description" content={seoData.description || 'Default Description'} />
+                <meta name="keywords" content={seoData.keywords || 'Default, Keywords'} />
+            </Helmet>
+            <YourModalComponent
+                isOpen={isModelOpen}
+                gallarydata={gallarydata}
+                onClose={handleCloseModal}
+            />
+            {pagetype === "pages" ?
+                <>
+                    <style dangerouslySetInnerHTML={{ __html: newcss }} />
+                    <div className="mycdes" ref={contentRef} dangerouslySetInnerHTML={{ __html: newhtml }} />
+
+                </>
+                :
+                <>
+
+
+
+                    <div className='row' style={{ width: '65%', marginLeft: '200px', margin: 'auto', padding: '0px', marginTop: '120px', marginBottom: '40px' }}>
+
+                        {/* ******************First Main Paragraph************************** */}
+
+                        <img alt="top-look" g style={{ width: '100%' }} src={`uploads/${blogData.featured_image}`} />
+
+                        <p className='mt50'>{formatDate(blogData.date)}</p>
+
+                        <h1 className='blogtitle'>{blogData.title}</h1>
+
+                        <p className='all-para pt-2' dangerouslySetInnerHTML={createMarkup(blogData.content)} />
+                    </div>
+                </>
+
+            }
+
+
+
+
+
+        </div>
+    );
+};
+
+export default DynamicPage;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/////////////////////////////////////// 
+import React, { useEffect, useState, useRef ,useLayoutEffect } from 'react';
+import { useParams } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
+import Select from 'react-select';
+import Countries from '../components/CountryInfo';
+import "slick-carousel/slick/slick.css"; 
+import "slick-carousel/slick/slick-theme.css";
+import "slick-carousel";
+import $ from 'jquery';
+import "../styles/banner/banner.css"
+// import "../styles/blog/model.css";
+
+import Swal from 'sweetalert2';
+import axios from 'axios';
+
+const YourModalComponent = ({ isOpen, gallarydata, onClose }) => {
+    const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+
+    const h3Ref = useRef(null);
+
+  let picsData = [];
+    if (gallarydata[0] && gallarydata[0].pics) {
+    // Check if Editdata[0].pics is a string
+    if (typeof gallarydata[0].pics === 'string') {
+        // Convert the string to an array using JSON.parse
+        gallarydata[0].pics = JSON.parse(gallarydata[0].pics);
+    }
+
+    // Use the map method on the array
+    picsData = gallarydata[0].pics.map(image => ({
+        id: image.id,
+        name: image.name,
+        url: `uploads/${image.name}`
+    }));
+}
+
+    const firstImageId = picsData.length > 0 ? picsData[0].id : 'No Image';
+
+    const goToNextImage = () => {
+        setCurrentImageIndex((prevIndex) => (prevIndex + 1) % picsData.length);
+    };
+
+    const goToPreviousImage = () => {
+        setCurrentImageIndex((prevIndex) =>
+            prevIndex === 0 ? picsData.length - 1 : prevIndex - 1
+        );
+    };
+
+    return (
+        <>
+
+
+            {isOpen && (
+                <div className="modal-overlay" >
+                    <div className="modal-content" style={{borderRadius:"0px"}}>
+                        <button onClick={onClose} className="close-button" style={{ textAlign: "right", background: "transparent", fontSize: "20px" }}>
+                            &#10006; {/* Close symbol (X) */}
+                        </button>
+                        <div style={{ display: 'flex', justifyContent: 'space-between', width: '80%', margin: 'auto' }}>
+                        </div>
+                        <div className="image-gallery" style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+                            <button onClick={goToPreviousImage} className="nav-button" style={{fontSize:"25px", background:"transparent"}}>
+                            &#x2B9C; {/* Left arrow */}
+                            </button>
+
+
+                            <img
+                                style={{ width: '450px', height: '320px' ,borderRadius:"0px", marginBottom:"30px"}}
+                                src={picsData[currentImageIndex]?.url}
+                                alt={`Image ${currentImageIndex}`}
+                            />
+
+
+
+                            <button onClick={goToNextImage} className="nav-button" style={{fontSize:"25px", background:"transparent"}}>
+                            &#x2B9E; {/* Right arrow */}
+                            </button>
+                        </div>
+
+                    </div>
+                </div>
+            )}
+        </>
+    );
+};
+
+
+
+const DynamicPage = () => {
+    const { pageUrl } = useParams();
+    const [htmlContent, setHtmlContent] = useState('');
+    const [cssContent, setCssContent] = useState('');
+    const [isLoading, setIsLoading] = useState(true);
+    const [error, setError] = useState(null);
+    const contentRef = useRef(null); // Ref to the content container
+    const [pagetype, setpagetype] = useState('');
+   // Initialize selectedCountry with the first country's code
+    const [selectedCountry, setSelectedCountry] = useState('+971');
+
+
+
+    const createMarkup = (html) => ({ __html: html });
+
+  
+    const [seoData, setSeoData] = useState({
+        title: '',
+        description: '',
+        keywords: ''
+    });
+    const [blogData, setBlogData] = useState(null);
+	const [isModelOpen, setIsModelOpen] = useState(false);
+	 const [gallarydata, setGallaryData] = useState([]);
+    const [newhtml,setNewhtml]=useState('');
+    const [newcss,setNewcss]=useState('');
+	
+
+    const handleCloseModal = () => {
+        setIsModelOpen(false);
+    };
+    
+    const formatDate = (dateString) => {
+        const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+        return new Date(dateString).toLocaleDateString('en-US', options);
+    };
+ const transformContentUrls = (htmlContent) => {
+    // Example transformation logic here
+    // You might use a library like DOMPurify for a robust solution
+    const baseUrl = '/'; // Adjust to your server's base URL
+    const updatedContent = htmlContent.replace(/src="\/(.*?)"/g, `src="${baseUrl}$1"`);
+    return updatedContent;
+  };
+  
+  console.log(pageUrl,"pageuel");
+    useEffect(() => {
+        // Fetch HTML content
+        fetch(`/uploads/page_${pageUrl}.html`)
+          .then(response => response.text())
+          .then(data => setNewhtml(data))
+          .catch(error => console.error('Error fetching HTML:', error));
+    
+        // Fetch CSS content
+        fetch(`/uploads/page_${pageUrl}.css`)
+          .then(response => response.text())
+          .then(data => setNewcss(data))
+          .catch(error => console.error('Error fetching CSS:', error));
+      }, [pageUrl]);
+
+
+ const [runEffect, setRunEffect] = useState(false);
+
+  const handlePaymentClick = () => {
+    setRunEffect(true);
+
+    const paymentRowElement = document.getElementById('paymentrow');
+    if (paymentRowElement) {
+      paymentRowElement.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+    useEffect(() => {
+    if (htmlContent) {
+	
+      // Parse the HTML string
+      const parser = new DOMParser();
+      const doc = parser.parseFromString(htmlContent, 'text/html');
+  
+      // Find the div with id "payment"
+      const paymentElement = document.getElementById('payment');
+
+      if (paymentElement) {
+        paymentElement.style.cursor = 'pointer';
+        paymentElement.addEventListener('click', handlePaymentClick);
+
+        // Cleanup the event listener when the component unmounts
+        return () => {
+          paymentElement.removeEventListener('click', handlePaymentClick);
+        };
+      }
+    }
+  }, [runEffect]);
+
+    useEffect(() => {
+        setIsLoading(true);
+        setError(null);
+        fetch(`/api/pagedata/${pageUrl}`)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! Status: ${response.status}`);
+                }
+                return response.json();
+            })
+            .then(data => {
+                if(data.type=="pages") {
+                    setHtmlContent(data.fileurl);
+                    setCssContent(data.cssurl);
+                    setSeoData({
+                        title: data.seoTitle,
+                        description: data.metaDescription,
+                        keywords: data.keywords
+                    });
+                    setpagetype("pages");
+
+
+                } 
+                else if(data.type=="blogs") {
+                    setBlogData(data);
+                    setSeoData({
+                        title: data.seo_title,
+                        description: data.description,
+                        keywords: data.meta_keywords	
+                      });
+                      setpagetype("blogs");
+
+                }
+                else {
+                    throw new Error('Invalid data structure from API');
+                }
+            })
+            .catch(error => {
+                console.error('Error fetching page:', error);
+                setError(error);
+            })
+            .finally(() => setIsLoading(false));
+    }, [pageUrl]);
+
+    useEffect(() => {
+        if (htmlContent && !isLoading) {
+            setTimeout(initializeSlider, 500); // Delay the initialization
+        }
+    }, [htmlContent, isLoading]);
+
+    // Initialize the slider
+    const initializeSlider = () => {
+        if (contentRef.current) {
+            $(contentRef.current).find('.testimonials-slider').slick({
+                // Slider settings
+                dots: true,
+                infinite: true,
+                speed: 500,
+                slidesToShow: 1,
+                slidesToScroll: 1
+            });
+        }
+    };
+
+
+
+    // Add form submission handling
+   
+ useEffect(() => {
+    
+    if (!isLoading && contentRef.current) {
+            const forms = contentRef.current.querySelectorAll('form');
+            forms.forEach(form => {
+                form.addEventListener('submit', handleFormSubmit);
+            });
+        }
+
+        if (contentRef.current) {
+		 console.log("Coming in if");
+         console.log(contentRef.current,"id");
+
+            // const selectElement = contentRef.current.querySelector('#countrySelect');
+			     const selectElement = document.querySelector('.custom-dropdown-placeholder');
+         console.log("selectElement",selectElement);
+            if (selectElement) {
+                // Hide the original select
+                selectElement.style.display = 'none';
+                // Create a custom dropdown container
+                const dropdownContainer = document.createElement('div');
+                dropdownContainer.className = 'custom-dropdown';
+                dropdownContainer.style.position = 'relative';
+
+                // Create a display area for selected option
+                const selectedOptionDisplay = document.createElement('div');
+                selectedOptionDisplay.className = 'selected-option';
+                selectedOptionDisplay.style.cursor = 'pointer';
+                selectedOptionDisplay.style.display = 'flex';
+                selectedOptionDisplay.style.alignItems = 'center';
+                selectedOptionDisplay.style.justifyContent = 'space-between';
+                selectedOptionDisplay.innerHTML = `
+                    <img src="${Countries[1].image}" alt="${Countries[1].name}" class="country-flag" />
+                                       <span class="dropdown-arrow">&#9660;</span>  <!-- This is the arrow icon -->
+                `;
+                dropdownContainer.appendChild(selectedOptionDisplay);
+
+                // Create a dropdown list
+                const dropdownList = document.createElement('div');
+                dropdownList.className = 'dropdown-list';
+                dropdownList.style.position = 'absolute';
+                dropdownList.style.zIndex = '10';
+                dropdownList.style.display = 'none'; // Initially hidden
+                dropdownContainer.appendChild(dropdownList);
+
+                // Populate dropdown list with options
+                Countries.forEach((country, index )=> {
+                    const optionDiv = document.createElement('div');
+                    optionDiv.className = 'dropdown-option';
+                    optionDiv.innerHTML = `
+                    <img src="${country.image}" alt="${country.name}" class="country-flag" />
+                    ${country.name} (${country.phone})
+                `; optionDiv.onclick = () => {
+                         selectedOptionDisplay.innerHTML = '';
+
+                        // Create a new image element for the country flag
+                        const imgElement = document.createElement('img');
+                        imgElement.src = country.image;
+                        imgElement.alt = country.name;
+                        imgElement.classList.add('country-flag');
+                        selectedOptionDisplay.appendChild(imgElement);
+                    
+                        // Create a new text node for the country name and phone
+                        const textNode = document.createTextNode(` (${country.phone})`);
+                        selectedOptionDisplay.appendChild(textNode);
+                    
+                        // Set the value of the original select element
+                        selectElement.value = country.phone;
+                        
+                        setSelectedCountry(country.phone[0])
+                       
+                        
+                        // Hide the dropdown list
+                        dropdownList.style.display = 'none';
+
+                    };
+                     // Set the first country as the default selected option
+                     if (index === 1) {
+                        optionDiv.classList.add('selected');
+
+                        // setSelectedCountry(country.phone[0])
+                    }
+
+                    dropdownList.appendChild(optionDiv);
+                });
+
+                // Toggle dropdown list visibility
+                selectedOptionDisplay.onclick = () => {
+                    dropdownList.style.display = dropdownList.style.display === 'none' ? 'block' : 'none';
+                };
+
+                // Insert the custom dropdown after the original select element
+                selectElement.parentNode.insertBefore(dropdownContainer, selectElement.nextSibling);
+            }
+        }
+
+        // Clean up
+        return () => {
+            if (contentRef.current) {
+                const forms = contentRef.current.querySelectorAll('form');
+                
+                forms.forEach(form => {
+                    form.removeEventListener('submit', handleFormSubmit);
+                });
+            }
+        };
+}, [isLoading, contentRef]);
+
+    
+
+    const selectedCountryRef = useRef(selectedCountry);
+    useEffect(() => {
+        selectedCountryRef.current = selectedCountry;
+    }, [selectedCountry]);
+    
+ const handleFormSubmit = (event) => {
+        event.preventDefault();
+    
+        // Get the form data
+        const formData = new FormData(event.target);
+	  formData.append('countryCode', selectedCountryRef.current);
+           if(pageUrl==='sale'){
+            formData.append('frompage', 'List Your Property');
+        }
+        else{
+            formData.append('frompage', pageUrl);
+
+        }
+        const data = {};
+    
+        // Iterate over form data and populate the data object
+        formData.forEach((value, key) => {
+            data[key] = value;
+        });
+    
+        // Validate form fields
+       
+    
+    
+            // If the form is valid, send data to the backend
+            fetch('/api/submit-form', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data)
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! Status: ${response.status}`);
+                }
+                return response.json();
+            })
+            .then(() => {
+                   Swal.fire({
+                    title: 'Success!',
+                    text: 'Form submitted successfully',
+                    icon: 'success',
+                    confirmButtonText: 'Ok'
+                  });
+            })
+            .catch(error => {
+                console.error('Error submitting form:', error);
+                alert('Error submitting form');
+            });
+        
+    };
+	  
+	
+useEffect(() => {
+    const handlePicClick = (event) => {
+        const target = event.target;
+       
+        // Check if the clicked element has a class starting with 'pic'
+        if (target.classList.contains('pic')) {
+         
+
+            // Get pageUrl and make axios call
+            let data = { 'pageUrl': pageUrl }; // Assuming the class itself is the pageUrl
+			console.log(data,"data for backend");
+            axios.post(`/opengallary`, data).then((res) => {
+			console.log(res.data,"data from backend")
+                setGallaryData(res.data);
+            });
+
+            // Open the gallery modal
+            setIsModelOpen(true);
+        }
+    };
+
+    if (newhtml) {
+        // Parse the HTML string
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(newhtml, 'text/html');
+
+        // Attach click event handler to the document (event delegation)
+        document.addEventListener('click', handlePicClick);
+    }
+
+    // Cleanup event listener when component unmounts or when new HTML is received
+    return () => {
+        document.removeEventListener('click', handlePicClick);
+    };
+}, [newhtml, pageUrl]);
+
+
+
+
+  
+useEffect(() => {
+  const handleGalleryClick = () => {
+      const galleryRowDiv = document.getElementById('gallaryrow');
+      if (galleryRowDiv) {
+          // Smooth scroll to the galleryrow
+          galleryRowDiv.scrollIntoView({
+              behavior: 'smooth'
+          });
+      }
+  };
+//   const handlePicsClick = () => {
+//       alert("cliked")
+//       let data = { 'pageUrl': pageUrl };
+// console.log(data,"pageurl");
+//       axios.post(`/opengallary`, data).then((res) => {
+//           setGallaryData(res.data);
+//       });
+//       setIsModelOpen(true);
+//   };
+
+  if (newhtml) {
+      const parser = new DOMParser();
+      const doc = parser.parseFromString(newhtml, 'text/html');
+
+      const galleryDiv = document.getElementById('gallary');
+      const picsDiv = doc.querySelector('.pics');
+ 
+      if (galleryDiv) {
+          galleryDiv.addEventListener("click", handleGalleryClick);
+      } else {
+          console.log('Div with id "gallary" not found.');
+      }
+
+      // if (picsDiv) {
+      //     picsDiv.addEventListener("click", handlePicsClick);
+      // } else {
+      //     console.log('Div with class "pics" not found.');
+      // }
+  } else {
+      console.log('htmlContent is empty or falsy.');
+  }
+}, [newhtml, pageUrl, setGallaryData, setIsModelOpen]);
+
+
+
+
+    useEffect(() => {
+        const attachClickListener = (divId, rowId) => {
+            // Find the div with the specified ID
+            const div = document.getElementById(divId);
+    
+            // Check if the div exists
+            if (div) {
+                // Set the cursor to 'pointer'
+                div.style.cursor = 'pointer';
+    
+                // Add a click event listener to the div
+                div.addEventListener("click", function () {
+                    const rowDiv = document.getElementById(rowId);
+                    if (rowDiv) {
+                        rowDiv.scrollIntoView({ behavior: 'smooth' });
+                    } else {
+                        console.log(`Div with id "${rowId}" not found.`);
+                    }
+                });
+            } else {
+                console.log(`Div with id "${divId}" not found.`);
+            }
+        };
+    
+        if (newhtml) {
+            // Attach click listener for "payment" div
+            attachClickListener('payment', 'paymentrow');
+    
+            // Attach click listener for "location" div
+            attachClickListener('location', 'locationrow');
+        }
+    }, [newhtml]);
+    if (isLoading) {
+        return <div>Loading...</div>;
+    }
+
+    if (error) {
+        return <div>Error loading the page: {error.message}</div>;
+    }
+	 
+
+    
+	
+    
+    return (
+        <div className='row mar0'>
+            <Helmet>
+                <title>{seoData.title}</title>
+                <meta name="description" content={seoData.description || 'Default Description'} />
+                <meta name="keywords" content={seoData.keywords || 'Default, Keywords'} />
+            </Helmet>
+  <YourModalComponent
+                isOpen={isModelOpen}
+                gallarydata={gallarydata}
+                onClose={handleCloseModal}
+            />
+            {pagetype==="pages"?
+            <>
+                    <style dangerouslySetInnerHTML={{ __html: newcss }} />
+            <div className="mycdes" ref={contentRef} dangerouslySetInnerHTML={{ __html: newhtml }} />
+            </>
+            :
+            <>
+           
+            
+
+            <div className='row' style={{ width: '65%', marginLeft: '200px', margin: 'auto', padding: '0px', marginTop: '120px', marginBottom: '40px' }}>
+
+                            {/* ******************First Main Paragraph************************** */}
+
+                            <img alt="top-look" g style={{ width: '100%' }} src={`uploads/${blogData.featured_image}`} />
+                           
+                             <p className='mt50'>{formatDate(blogData.date)}</p>
+
+                            <h1 className='blogtitle'>{blogData.title}</h1>
+
+                            <p className='all-para pt-2' dangerouslySetInnerHTML={createMarkup(blogData.content)} />
+                        </div>
+                </>
+
+        }
+
+            
+
+
+
+        </div>
+    );
+};
+
+export default DynamicPage;

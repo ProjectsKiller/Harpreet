@@ -1,0 +1,29 @@
+.icon-container {
+  display: inline-block;
+  border: 1.5px solid #676a6c; /* Thin border with your desired color */
+  border-radius: 50%; /* Makes the container circular */
+  text-align: center; /* Center the icon horizontally and vertically */
+  width: 40px; /* Adjust the width and height to control the circle size */
+  height: 40px;
+  line-height: 40px; /* Match the line-height with the height for vertical alignment */
+  color: #42484e; /* Icon color */
+  font-size: 20px; /* Adjust the font size as needed */
+}
+#mainfooterdiv{
+	padding-top : 19px;
+    width: 80%;
+    color:#4d4d4f;
+    color: #4d4d4f;
+}
+#bottom-text{
+    font-family: "Raine-HorneLight";
+   
+}
+#service-about{
+    font-family: "Raine-HorneLight";
+   
+}
+
+.title{
+    color:#fcaf17 !important;
+}

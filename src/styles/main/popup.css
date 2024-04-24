@@ -1,0 +1,75 @@
+/* styles.css */
+.centered-modal {
+    position: fixed;
+    font-family: Raine-HorneRegular;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+    /* Ensure it appears above other content */
+    background-color: rgba(0, 0, 0, 0.5);
+    /* Semi-transparent black background */
+    backdrop-filter: blur(5px);
+    /* Apply blur to the background */
+    padding: 20px;
+    /* Add padding for the modal content */
+    border-radius: 8px;
+}
+
+#popheading {
+    font-family: Raine-HorneRegular;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    margin: auto;
+}
+
+#subheading {
+    /* border:2px solid red; */
+    font-family: Raine-HorneRegular;
+    text-align: center;
+    font-size: 15px;
+}
+
+#two-para {
+    /* border:2px solid red; */
+    color: #504d4f;
+    font-size: 14px;
+
+
+    font-family: Raine-HorneLight;
+    width: 420px;
+    margin: auto;
+}
+
+#close {
+    background-color: #a7a2a5;
+    width: 130px;
+    font-family: Raine-HorneRegular;
+}
+
+#subsicrbe {
+    font-family: Raine-HorneRegular;
+
+    background-color: #fcaf17;
+    width: 130px;
+}
+
+.blackdot::before {
+    content: '\2022';
+    /* Unicode character for a bullet point */
+    color: black;
+    /* Change the color to black */
+    margin-right: 10px;
+    /* Adjust the spacing as needed */
+}
+
+#modelmain {
+    overflow: hidden;
+}
+#summs {
+    list-style-type: none;
+}
+#op{
+/* height: 200px; */
+}

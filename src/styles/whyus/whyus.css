@@ -1,0 +1,70 @@
+@font-face {
+    font-family: Raine-HorneRegular;
+    src: url(/public/Font/Raine-HorneRegular.otf);
+}
+
+@font-face {
+    font-family: Raine-HorneLight;
+    src: url(/public/Font/Raine-HorneLight.otf);
+}
+
+#why-us-page-main {
+    font-family: Raine-HorneRegular;
+    margin-bottom: 70px;
+}
+
+.whyusimages {
+    /* margin: ; */
+    margin-left: 75px;
+    width: 400px;
+    height: 280px;
+}
+
+.center-line-dots {
+    height: 250px;
+    width: 100px;
+}
+
+
+
+.why-us-details-side {
+    text-align: justify;
+    width: 67%;
+    /* margin: auto; */
+    margin-left: 70px;
+}
+
+#whytext {
+    color: #fff;
+    font-family: Raine-HorneLight;
+    font-size: 18px;
+    letter-spacing: 0.1px;
+    line-height: 25px;
+}
+
+#offer {
+    font-family: Raine-HorneRegular;
+    font-size: 35px;
+    color: #504d4f;
+}
+
+.whysub {
+    font-family: Raine-HorneRegular !important;
+    font-size: 24px !important;
+    color: #504d4f !important;
+}
+
+.why-us-page-details {
+
+    font-family: Raine-HorneLight;
+    color: #212529;
+    font-size: 18px;
+}
+
+.why-us-header-heading {
+    overflow: hidden;
+
+    font-family: Raine-HorneRegular;
+    font-size: 50px !important;
+    color: white;
+}

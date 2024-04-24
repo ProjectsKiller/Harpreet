@@ -1,0 +1,35 @@
+@font-face {
+    font-family: Raine-HorneLight;
+    src: url(/public/Font/Raine-HorneLight.otf);
+}
+
+@font-face {
+    font-family: Raine-HorneRegular;
+    src: url(/public/Font/Raine-HorneRegular.otf);
+}
+
+
+#links-offices li a {
+    font-family: Raine-HorneLight;
+    text-decoration: none;
+    color: #ffb114;
+    font-size: 16px;
+}
+
+#links-offices li a:hover{
+    text-decoration: underline;
+}
+
+.offices-para{
+    font-family: Raine-HorneLight;
+   
+    color: #212529;
+    font-size: 17px;
+}
+
+#our-offices-heading{
+    font-family: Raine-HorneLight;
+    font-size: 40px;
+    font-weight: 500;
+    color: #4e5158;
+}

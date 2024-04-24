@@ -1,0 +1,173 @@
+#left-main-div {
+    font-family: Raine-HorneLight;
+
+    /* border: 2px solid red; */
+    width: 100%;
+    /* border-right: 1px solid rgb(190, 190, 190); */
+    padding: 30px;
+    margin-top: 40px;
+    float:left;
+    height: auto;
+}
+
+#for-rent-sale {
+    font-family: Raine-HorneLight;
+    border-radius: 20px;
+    font-size: 14px;
+    width: 100px;
+    height: 30px;
+    color: rgba(49, 46, 46, 0.897);
+    padding: 6px 6px;
+    background: rgba(218, 219, 220, 0.753);
+}
+
+#for-rent-sale:hover {
+    color: #fcaf17;
+}
+
+#propert-heading {
+    font-weight: bold;
+    color: rgba(49, 46, 46, 0.897);
+}
+
+#para-text {
+    color: rgba(80, 70, 70, 0.838);
+    font-family: Raine-HorneLight;
+
+    text-align: justify;
+}
+
+#property-details {
+    font-family: Raine-HorneRegular;
+    font-weight: bold;
+    margin-top: 40px;
+    font-size: 18px;
+}
+
+.features {
+    display: flex;
+}
+
+#facilities {
+    font-family: Raine-HorneRegular;
+    font-weight: bold;
+    margin-top: 40px;
+    font-size: 18px;
+}
+
+#more-btn {
+    color: #fcaf17;
+}
+
+#mapbtn {
+    /* margin-left: 650px; */
+    margin-top: -70px;
+    background-color: #fcaf17;
+    width: 200px;
+    float: right;
+}
+
+#postbtn {
+    /* position: absolute; */
+    background-color: #fcaf17;
+    float: right;
+    width: "250px"
+}
+
+#comment-form {
+    text-align: left;
+    font-family: Raine-HorneLight;
+
+}
+
+#comment-form {
+    text-align: left;
+    font-family: Raine-HorneLight;
+
+}
+
+@media screen and (min-width: 1450px) and (max-width: 1976px) {
+    .internal-basic-info {
+        margin-left: -45px !important;
+    }
+}
+@media screen and (min-width: 1199px) and (max-width: 1450px) {
+    .internal-basic-info {
+        margin-left: -35px !important;
+    }
+}
+@media screen and (min-width: 995px) and (max-width: 1199px) {
+    .internal-basic-info {
+        margin-left: -22px !important;
+    }
+}
+@media screen and (min-width: 650px) and (max-width: 995px) {
+    .internal-basic-info {
+        margin-left: -20px !important;
+    }
+}
+@media screen and (min-width: 550px) and (max-width: 650px) {
+    .internal-basic-info {
+        margin-left: -10px !important;
+    }
+}
+
+@media screen and (min-width: 1450px) and (max-width: 1976px) {
+    .internal-basic-info {
+        margin-left: -45px !important;
+    }
+}
+@media screen and (min-width: 1199px) and (max-width: 1450px) {
+    .internal-basic-info {
+        margin-left: -35px !important;
+    }
+}
+@media screen and (min-width: 995px) and (max-width: 1199px) {
+    .internal-basic-info {
+        margin-left: -22px !important;
+    }
+}
+@media screen and (min-width: 650px) and (max-width: 995px) {
+    .internal-basic-info {
+        margin-left: -20px !important;
+    }
+}
+@media screen and (min-width: 550px) and (max-width: 650px) {
+    .internal-basic-info {
+        margin-left: -10px !important;
+    }
+    
+}
+@media screen and (min-width: 200px) and (max-width: 991px) {
+    #left-main-div {
+       border:none !important;
+    }
+
+}
+
+@media only screen and (max-width:768px) {
+.row.mt-4 .col-6 .col-6.text-end {
+    width: 50% !important;
+}
+
+.row.mt-4 .col-6 {
+    width: 100% !important;
+}
+	div#profile-div {
+    width: 100% !important;
+}
+	div#left-main-div {
+    padding-right: 0px !important;
+}
+	span#price-per-month strong {
+    font-size: 34px !important;
+}
+
+span#price-per-month {
+    width: 100% !important;
+}
+	div#left-main-div {
+    margin-top: 0px !important;
+}
+	
+}

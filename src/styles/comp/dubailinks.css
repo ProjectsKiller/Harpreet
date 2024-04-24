@@ -1,0 +1,170 @@
+.btnlink {
+    cursor: pointer;
+    font-size: 16px !important;
+    text-decoration: none;
+    line-height: 20px !important;
+    font-weight: 600;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    color: black;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    margin: 0;
+    border: 0.5px solid rgb(213, 213, 213);
+}
+
+.btnlink:hover {
+    background-color: #1D3557;
+    color: white;
+}
+
+.searchheading {
+    width: 700px;
+    font-size: 28px;
+    line-height: 34px;
+    font-weight: 700;
+    font-style: italic;
+}
+
+.subscribe-box {
+    width: 500px;
+    margin: auto;
+    /* background: #9cbbd2; */
+    font-family: "Gothic A1", serif;
+    /* padding: 6em 0; */
+    text-align: center;
+}
+
+.subscribe-box h2 {
+    margin: 0 0 0.85em 0;
+    font-weight: 100;
+    font-size: 30px;
+    font-family: "Marcellus", serif;
+}
+
+.subscribe-box .subscribe {
+    width: 100%;
+    /* max-width: 600px; */
+    margin: auto;
+}
+
+.subscribe-box .subscribe input {
+    width: 400px;
+    border-radius: 50px;
+    background: transparent;
+    /* border: 0; */
+    /* border-bottom: 1px solid; */
+    margin-top: 20px;
+    height: 40px;
+    background-color: white;
+
+    border: 1px solid rgb(218, 218, 218);
+    padding: 1em 0 0.8em;
+    text-align: center;
+    font-size: 18px;
+    font-family: inherit;
+    font-weight: 300;
+    line-height: 1.5;
+    color: rgb(87, 87, 87);
+    outline: none;
+}
+
+.subscribe-box .subscribe input::-moz-placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.subscribe-box .subscribe input:-ms-input-placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.subscribe-box .subscribe input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.subscribe-box .subscribe button {
+    all: unset;
+    height: 10px;
+    margin-top: 1em;
+    background: #e9222f;
+    border: 2px solid rgb(197, 196, 196);
+    padding: 1em 2em;
+    padding-top: 13px;
+    border-radius: 50px;
+    cursor: pointer;
+    display: inline-block;
+    font-weight: 700;
+    position: relative;
+    transition: all 300ms ease;
+    display: inline-block;
+    color: white;
+    transition: all 300ms ease;
+    font-size: 18px;
+    line-height: 16px;
+}
+
+/* width: '1170px' */
+
+
+@media screen and (min-width:1200px) and (max-width:1400px) {
+    .commonbtnlink {
+        color: #e9222f;
+        font-size: 15px !important;
+        text-decoration: none;
+        line-height: 20px !important;
+        font-weight: 600;
+    }
+
+}
+
+@media screen and (min-width:1000px) and (max-width:1200px) {
+    .commonbtnlink {
+        font: "Poppin";
+        font-size: 13px !important;
+        text-decoration: none;
+        line-height: 20px !important;
+        font-weight: 600;
+    }
+}
+
+@media screen and (min-width:500px) and (max-width:1000px) {
+    .commonbtnlink {
+        color: #e9222f;
+        font-size: 9px !important;
+        text-decoration: none;
+        width: 100px;
+        line-height: 20px !important;
+        font-weight: 600;
+    }
+}
+
+@media screen and (min-width:600px) and (max-width:700px) {
+
+    .searchheading {
+        width: 600px;
+        font-size: 24px;
+    }
+}
+
+@media screen and (min-width:500px) and (max-width:600px) {
+
+    .searchheading {
+        width: 500px;
+        font-size: 20px;
+    }
+}
+
+@media screen and (min-width:500px) and (max-width:600px) {
+
+    #dhubaicontainer {
+        width: 500px;
+    }
+}

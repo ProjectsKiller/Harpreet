@@ -1,0 +1,25 @@
+.arrow-right {
+    position: absolute;
+    top: 50%; /* Vertically center */
+    right: -25px; /* Position on the right */
+    transform: translateY(-50%); /* Center vertically */
+    /* background: #fff; Arrow background color/ */
+    border-radius: 100px;
+    color: white; /* Arrow text color */
+    padding: 10px; /* Arrow padding */
+    cursor: pointer; /* Cursor style on hover */
+    margin-left: 20px;
+  }
+  
+  /* Style for the left arrow */
+  .arrow-left {
+    position: absolute;
+    border-radius: 100px;
+    top: 50%; /* Vertically center */
+    left: -25px; /* Position on the left */
+    transform: translateY(-50%); /* Center vertically */
+    /* background: #fff; Arrow background color */
+    color: white; /* Arrow text color */
+    padding: 10px; /* Arrow padding */
+    cursor: pointer; /* Cursor style on hover */
+  }

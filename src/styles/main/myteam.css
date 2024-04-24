@@ -1,0 +1,74 @@
+@font-face {
+    font-family: Raine-HorneLight;
+    src: url(/public/Font/Raine-HorneLight.otf);
+  }
+  
+  @font-face {
+    font-family: Raine-HorneRegular;
+    src: url(/public/Font/Raine-HorneRegular.otf);
+  }
+  
+  
+
+#our-Team {
+    font-family: Raine-HorneRegular;
+    color: #504d4f;
+}
+
+#teammembers {
+    border: 2px solid red;
+    height: auto;
+    width: 80%;
+    position: relative;
+    margin: auto;
+
+}
+
+#h-team {
+    text-align: center;
+}
+
+#team-member {
+    position: relative;
+    border-radius: 0px;
+    width: 87% !important;
+    /* margin-top: -60px; */
+    font-family: Raine-HorneLight;
+    color: #504d4f;
+    margin-bottom: 100px;
+    margin-top: 80px;
+}
+
+.person-img:hover {
+    opacity: 0.5;
+}
+
+#agent-name-meet{
+    max-height: 30px !important;
+    overflow: hidden;
+    font-size: 22px;
+}
+
+.meet-team-details{
+    font-family: Raine-HorneLight !important;
+    font-size: 16px;
+    color: #212529 !important;
+    text-decoration: none !important;
+}
+.meet-team-heading-details{
+    font-family: Raine-HorneLight !important;
+    font-size: 18px;
+    color: white;
+}
+
+#our-team-member{
+    width: auto;
+    margin: auto;
+}
+
+@media screen and (min-width: 330px) and (max-width: 745px) {
+ #our-team-member{
+    border: 2px solid rgb(0, 0, 0);
+ }
+
+}

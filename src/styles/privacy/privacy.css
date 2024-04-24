@@ -1,0 +1,22 @@
+@font-face {
+    font-family: Raine-HorneLight;
+    src: url(/public/Font/Raine-HorneLight.otf);
+  }
+  
+  @font-face {
+    font-family: Raine-HorneRegular;
+    src: url(/public/Font/Raine-HorneRegular.otf);
+  }
+
+.privacy-headings {
+    font-family: Raine-HorneRegular !important;
+    font-size: 30px;
+    color: #504d4f;
+}
+
+.privacy-details{
+    font-family: Raine-HorneLight;
+    color: #212529;
+    font-size: 17px;
+    font-weight: 400;
+}

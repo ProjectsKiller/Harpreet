@@ -1,0 +1,20 @@
+
+#thnx{
+    text-align: center;
+    /* height: 400px; */
+    justify-content: center;
+    /* border:2px solid red; */
+    font-family:Raine-HorneRegular;
+    margin:auto;
+}
+#thnxhead{
+    font-family:Raine-HorneRegular;   
+}
+#homebtn{
+  background-color: rgb(232, 232, 233);
+    width: 150px;
+}
+#homebtn:hover{
+  background-color: #f99d1c;
+    width: 150px;
+}

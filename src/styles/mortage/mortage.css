@@ -1,0 +1,670 @@
+@font-face {
+    font-family: Raine-HorneRegular;
+    src: url(/public/Font/Raine-HorneRegular.otf);
+}
+
+#mortage-main {
+    font-family: Raine-HorneRegular !important;
+    margin-top: 60px;
+}
+
+#mortbannerpara {
+    font-size: 18px;
+}
+
+.sameformformort {
+    width: 100% !important;
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+}
+
+.css-ey4tw6 {
+    color: #cbcbd4 !important;
+}
+
+
+#mort-process-details-div {
+
+    margin-top: 60px;
+}
+
+#mort-ser {
+    margin-left: 35px;
+    padding-bottom: 10px;
+}
+
+#mort-pro-img-div {
+    padding-right: 0px;
+    padding-left: 0px !important;
+}
+
+#sec-mort {
+    margin-left: 35px;
+    color: #504d4f;
+    font-size: 18px;
+    font-weight: 400;
+    padding-bottom: 10px;
+    font-family: Raine-HorneLight;
+}
+
+#mortagemaindiv {
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 10px;
+    border-radius: 5px;
+    border-radius: 0px !important;
+    font-family: Raine-HorneRegular;
+}
+
+#mortagetext {
+    text-align: center;
+    font-family: Raine-HorneLight;
+    color: #fff;
+    font-size: 18px !important;
+}
+
+#m-services-contact-us {
+    text-align: center;
+    width: 80%;
+    margin: auto;
+    margin-bottom: 60px;
+}
+
+#mortagecal {
+    margin-top: 50px !important;
+    margin-left: 11px;
+    background-color: #f7f7f7 !important;
+}
+
+#mort {
+    color: #fff;
+    font-weight: 500;
+    font-size: 35px !important;
+    font-family: Raine-HorneRegular !important;
+}
+
+.all-head {
+    font-family: Raine-HorneRegular;
+    font-size: 35px;
+    color: #504d4f;
+}
+
+#comment-form {
+    color: #212529;
+}
+
+#btnmort:hover {
+    color: black !important;
+}
+
+
+
+#mortgage-cal:hover {
+    color: #212529;
+}
+
+#contus:hover {
+    color: #212529;
+}
+
+.m-text {
+    font-family: Raine-HorneLight !important;
+    color: #212529;
+    font-size: 16px;
+}
+
+.m-text span {
+    font-size: 18px;
+    font-family: Raine-HorneRegular;
+    color: #504d4f;
+
+}
+
+.form-text {
+    position: relative;
+}
+
+.static-value {
+    position: absolute;
+    right: 10px;
+    font-weight: bold;
+    font-size: 0.8em;
+    color: #212529;
+    top: 9px;
+    font-family: Raine-HorneLight;
+}
+
+
+.css-1m0pw1c-MuiSlider-root {
+    border-radius: 12px;
+    border-radius: 0px !important;
+    box-sizing: content-box;
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+    touch-action: none;
+    color: #454545 !important;
+    -webkit-tap-highlight-color: transparent;
+    height: 4px;
+    width: 100%;
+    padding: 13px 0;
+}
+
+#mort-process-img-div {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+
+
+/* ******************Blog Section************* */
+#first-main-blog {
+    width: 100%;
+    min-height: 130px;
+}
+
+.mort-ser-news {
+    width: 100%;
+    height: 100%;
+}
+
+#mort-news-section {
+    width: 100%;
+    padding: 0px;
+}
+
+#mort-main-news-section {
+    padding-top: 0px !important;
+}
+
+#mortagageform {
+
+    width: 87% !important;
+    margin: auto !important;
+}
+
+/* HARPREET  MORTGAGE CALCULATOR */
+@media screen and (min-width: 300px) and (max-width: 576px) {
+    .mort-ser-news {
+        margin-left: 10px;
+    }
+
+    #mortbannerpara {
+        font-size: 14px;
+        color: #fff;
+        font-family: Raine-HorneLight;
+    }
+
+    .main-mortgagebanner-heading {
+        margin-top: 145px;
+        color: #fff;
+        font-size: 30px;
+        font-family: Raine-HorneRegular;
+    }
+
+    .sameclassforcal {
+        /* border:2px solid red; */
+        width: 100% !important;
+        margin-top: 5px;
+        margin-bottom: 5px;
+        display: block;
+    }
+
+    .samemortgagetxt {
+        /* border: 2px solid green; */
+        width: 100% !important;
+    }
+
+    #mortage-main {
+        margin-top: 30px;
+    }
+
+    .unique {
+        display: block;
+    }
+
+    .rtlo4d {
+        margin-top: 10px;
+    }
+
+    .newsroatecls {
+        display: block;
+    }
+}
+
+@media screen and (min-width: 576px) and (max-width: 768px) {
+    #mortbannerpara {
+        font-size: 14px;
+        color: #fff;
+        font-family: Raine-HorneLight;
+
+    }
+
+    .main-mortgagebanner-heading {
+        margin-top: 165px;
+        color: #fff;
+        font-size: 30px;
+        font-family: Raine-HorneRegular;
+    }
+
+    .sameformformort {
+        width: 100%;
+    }
+
+    .rtlo4d {
+        margin-top: 10px;
+    }
+
+
+}
+
+@media screen and (min-width: 768px) and (max-width: 992px) {
+    #mortbannerpara {
+        font-size: 16px;
+        color: #fff;
+        width: 80%;
+        margin: auto;
+        font-family: Raine-HorneLight;
+
+    }
+
+    .main-mortgagebanner-heading {
+        margin-top: 165px;
+        color: #fff;
+        font-size: 35px;
+
+        font-family: Raine-HorneRegular;
+    }
+
+    .rtlo4d {
+        margin-top: 10px;
+    }
+}
+
+@media screen and (min-width: 992px) and (max-width: 1024px) {
+    #mortbannerpara {
+        font-size: 18px;
+        color: #fff;
+        width: 80%;
+        margin: auto;
+        font-family: Raine-HorneLight;
+
+    }
+
+    .main-mortgagebanner-heading {
+        margin-top: 165px;
+        color: #fff;
+        font-size: 40px;
+
+        font-family: Raine-HorneRegular;
+    }
+
+    #mort-process-img {
+        padding-right: 20px !important;
+    }
+
+    #mort-pro-img {
+        padding-left: 20px !important;
+    }
+
+    .unique {
+        display: flex;
+
+    }
+
+    .rtIMG {
+        /* border: 2px solid red; */
+        width: 50%;
+    }
+
+    .newsroatecls {
+        display: flex;
+        /* width: 50%; */
+    }
+
+    .rCd3TR {
+        /* border: 2px solid green; */
+        width: 50%;
+    }
+
+    .rtcont {
+        flex-direction: row-reverse;
+        display: 'flex',
+
+    }
+
+    .rCd3TR {
+        margin-left: 10px;
+    }
+
+    .uTNk3 {
+        flex: 1;
+        padding-right: 10px;
+        /* Add some space between the two divs */
+    }
+
+    .rgtoe {
+        flex: 1;
+        padding-left: 0px;
+        /* Add some space between the two divs */
+    }
+
+    .rtIMG {
+        width: 33%;
+        margin-bottom: 9px;
+    }
+    .igm4r {
+        height: 117px;
+    }
+}
+
+@media screen and (min-width: 1024px) and (max-width: 1200px) {
+    #mortbannerpara {
+        font-size: 18px;
+        color: #fff;
+        width: 80%;
+        margin: auto;
+        font-family: Raine-HorneLight;
+
+    }
+
+    .main-mortgagebanner-heading {
+        margin-top: 165px;
+        color: #fff;
+        font-size: 40px;
+
+        font-family: Raine-HorneRegular;
+    }
+
+    #mortagageform {
+
+        /* width: 87% !important; */
+        margin: 60px auto !important;
+    }
+
+    #mort-process-img {
+        padding-right: 20px !important;
+    }
+
+    #mort-pro-img {
+        padding-left: 20px !important;
+    }
+
+    .unique {
+        display: flex;
+
+    }
+
+
+    .newsroatecls {
+        display: flex;
+        /* width: 50%; */
+    }
+
+    
+    .rtcont {
+        flex-direction: row-reverse;
+        display: 'flex',
+
+    }
+
+    .rCd3TR {
+        margin-left: 10px;
+    }
+
+    .uTNk3 {
+        flex: 1;
+        padding-right: 10px;
+        /* Add some space between the two divs */
+    }
+
+    .rgtoe {
+        flex: 1;
+        padding-left: 0px;
+        /* Add some space between the two divs */
+    }
+
+    .rtIMG {
+        width: 33%;
+        margin-bottom: 9px;
+    }
+    .igm4r {
+        height: 117px;
+    }
+
+}
+
+@media screen and (min-width: 1200px)and (max-width: 1400px) {
+    #mortbannerpara {
+        font-size: 18px;
+        color: #fff;
+        width: 80%;
+        margin: auto;
+        font-family: Raine-HorneLight;
+
+    }
+
+    #mortagageform {
+
+        width: 40% !important;
+        margin: 60px auto !important;
+    }
+    #para-mort-cal{
+        width: 60%;
+    }
+
+    #mort-process-details-div {
+        margin-left: 0px;
+        padding-left: 0px !important;
+    }
+
+    .main-mortgagebanner-heading {
+        margin-top: 165px;
+        color: #fff;
+        font-size: 40px;
+
+        font-family: Raine-HorneRegular;
+    }
+
+    #mort-process-img {
+        padding-right: 20px !important;
+    }
+    #mort-pro-img {
+        padding-left: 20px !important;
+    }
+    .unique {
+        display: flex;
+    }
+    .rtIMG {
+        width: 50%;
+    }
+    .newsroatecls {
+        display: flex;
+    }
+    .rCd3TR {
+        width: 100%;
+        margin-left: 10px;
+    }
+    .rtcont {
+        flex-direction: row-reverse;
+        display: 'flex',
+    }
+    .uTNk3 {
+        flex: 1;
+        padding-right: 10px;
+    }
+    .rgtoe {
+        flex: 1;
+        padding-left: 0px;
+    }
+    #mortagageform {
+        width: 40% !important;
+        margin: 60px auto !important;
+    }
+    #mort-process-details-ul {
+        padding-left: 33px !important;
+    }
+    .rtIMG {
+        width: 33%;
+        margin-bottom: 9px;
+    }
+    .igm4r {
+        height: 117px;
+    }
+}
+/* @media screen and (min-width: 1200px)and (max-width: 1400px) {
+    #mortbannerpara {
+        font-size: 18px;
+        color: #fff;
+        width: 80%;
+        margin: auto;
+        font-family: Raine-HorneLight;
+
+    }
+
+    #mortagageform {
+
+        width: 60% !important;
+        margin: 60px auto !important;
+    }
+
+    .main-mortgagebanner-heading {
+        margin-top: 165px;
+        color: #fff;
+        font-size: 40px;
+
+        font-family: Raine-HorneRegular;
+    }
+
+    #mort-process-img {
+        padding-right: 20px !important;
+    }
+
+    #mort-pro-img {
+        padding-left: 20px !important;
+    }
+
+    .unique {
+        display: flex;
+
+    }
+
+    .rtIMG {
+        width: 50%;
+    }
+
+    .newsroatecls {
+        display: flex;
+    }
+
+    .rCd3TR {
+        width: 50%;
+    }
+    .rtcont {
+        flex-direction: row-reverse;
+        display: 'flex',
+    }
+    .rCd3TR {
+        margin-left: 10px;
+    }
+    .uTNk3 {
+        flex: 1;
+        padding-right: 10px;
+    }
+
+    .rgtoe {
+        flex: 1;
+        padding-left: 0px;
+    }
+
+
+    .rtIMG {
+        margin-bottom: 9px;
+    }
+    .igm4r{
+        height: 120px;
+    }
+} */
+
+@media screen and (min-width: 1400px) {
+    #mortbannerpara {
+        font-size: 18px;
+        color: #fff;
+        width: 80%;
+        margin: auto;
+        font-family: Raine-HorneLight;
+
+    }
+
+    #mortagageform {
+
+        width: 40% !important;
+        margin: 60px auto !important;
+    }
+    #para-mort-cal{
+        width: 60%;
+    }
+
+    #mort-process-details-div {
+        margin-left: 0px;
+        padding-left: 0px !important;
+    }
+
+    .main-mortgagebanner-heading {
+        margin-top: 165px;
+        color: #fff;
+        font-size: 40px;
+
+        font-family: Raine-HorneRegular;
+    }
+
+    #mort-process-img {
+        padding-right: 20px !important;
+    }
+    #mort-pro-img {
+        padding-left: 20px !important;
+    }
+    .unique {
+        display: flex;
+    }
+    .rtIMG {
+        width: 50%;
+    }
+    .newsroatecls {
+        display: flex;
+    }
+    .rCd3TR {
+        width: 100%;
+        margin-left: 10px;
+    }
+    .rtcont {
+        flex-direction: row-reverse;
+        display: 'flex',
+    }
+    .uTNk3 {
+        flex: 1;
+        padding-right: 10px;
+    }
+    .rgtoe {
+        flex: 1;
+        padding-left: 0px;
+    }
+    #mortagageform {
+        width: 40% !important;
+        margin: 60px auto !important;
+    }
+    #mort-process-details-ul {
+        padding-left: 33px !important;
+    }
+    .rtIMG {
+        width: 33%;
+        margin-bottom: 9px;
+    }
+    .igm4r {
+        height: 136px;
+    }
+}
+
+/* HARPREET NEWS AND INSIGHTS*/

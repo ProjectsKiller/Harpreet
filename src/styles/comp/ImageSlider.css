@@ -1,0 +1,47 @@
+.carodel-img{
+    height: 515px;
+}
+/* styles.css */
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  
+  .gallery img {
+    width: 100px;
+    height: 100px;
+    cursor: pointer;
+  }
+  /* Add this CSS to style the navigation arrows */
+.lightbox-image-container {
+    position: relative;
+  }
+  
+  .nav-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-size: 24px;
+    padding: 8px 16px;
+    border-radius: 50%;
+    transition: background-color 0.2s;
+  }
+  
+  .prev-arrow {
+    left: 0;
+  }
+  
+  .next-arrow {
+    right: 0;
+  }
+  /* LightboxGallery.css */
+.zoomed {
+    transform: scale(1.2); /* Adjust the scale value for desired zoom level */
+    transition: transform 0.3s; /* Add a transition for a smooth zoom effect */
+  }
+  

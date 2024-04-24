@@ -1,0 +1,247 @@
+.landing-btn {
+	display: inline-block;
+	margin-bottom: 15px;
+	line-height: 60px;
+	width: max-content;
+}
+
+.img-btn-component {
+	background-color: #fff;
+	border: 1px solid #fcaf17;
+	box-shadow: 0 2px 6px rgba(0, 0, 0, .07);
+	width: 300px;
+}
+
+.img-btn-component a,
+.img-btn-component span {
+	display: block;
+	padding: 0 10px 0 15px;
+	text-align: left;
+}
+
+
+
+.img-btn-component img {
+	display: inline-block;
+	float: right;
+}
+
+.content p {
+	text-align: justify;
+}
+
+.price span {
+	color: #fcaf17;
+	font-size: 26px;
+	font-weight: bold;
+}
+
+.row.content {
+	align-items: center;
+}
+
+.price h4 {
+	font-size: 18px;
+}
+
+.button-two {
+	background: linear-gradient(-45deg, #fcaf17, #b98d36);
+}
+
+.req {
+	
+	transition: all 0.3s ease;
+	cursor: pointer;
+	border-radius: 6px;
+	background-size: 400% 400%;
+	color: #FFF;
+	text-transform: uppercase;
+	border: 0;
+	padding: 15px 10px;
+	animation: Gradient 10s ease infinite;
+	width: 47%;
+
+	&:hover {
+		background-size: 100% 100%;
+	}
+}
+
+.row.gray {
+	justify-content: space-around;
+}
+
+.button-outline {
+	animation: Gradient 10s ease infinite;
+	position: relative;
+
+	.req span {
+		position: relative;
+		z-index: 2;
+	}
+}
+
+@keyframes Gradient {
+	0% {
+		background-position: 0% 50%
+	}
+
+	50% {
+		background-position: 100% 50%
+	}
+
+	100% {
+		background-position: 0% 50%
+	}
+}
+
+.line-box {
+	border-left: 1px solid #d5d5d5;
+}
+
+.price {
+	padding: 30px 0;
+}
+
+.start-box {
+	background: #f3f3f3;
+	padding: 40px 30px;
+}
+
+
+.listingItem-container {
+	box-shadow: 0 5px 14px rgba(0, 0, 0, .13);
+	cursor: pointer;
+}
+
+.listingItem-container .item-image {
+	background-position: 50%;
+	background-repeat: no-repeat;
+	background-size: cover;
+	height: 305px;
+	width: 100%;
+}
+
+.listingItem-container .text-container {
+	background: #fff;
+	min-height: 150px;
+	padding: 14px 19px;
+	position: relative;
+	text-align: left;
+	word-break: break-word;
+}
+
+.item-location {
+	font-size: 14px;
+	font-weight: 400;
+	color: #212529;
+	position: absolute;
+	right: 16px;
+	top: 25px;
+}
+
+
+
+.card-list .listing-item {
+	/* display: inline-block; */
+	/* margin: 20px 15px; */
+}
+
+.line-col {
+	background: #fcaf17;
+	width: 100%;
+	height: 2px;
+	position: absolute;
+	bottom: 50px;
+	right: 0px;
+}
+
+.fromcnt {
+	visibility: hidden;
+}
+
+#OffplanHeadings {
+	font-family: Raine-HorneRegular !important;
+	font-size: 30px;
+	color: #504d4f !important;
+}
+
+#park {
+	font-family: Raine-HorneRegular !important;
+	font-size: 30px;
+	color: #504d4f !important;
+}
+
+#cominSoon {
+	font-family: Raine-HorneLight;
+	color: #212529;
+	font-size: 17px;
+}
+
+#LocationPro {
+	margin-top: -5px;
+	color: #504d4f !important;
+	font-family: Raine-HorneRegular !important;
+	font-size: 17px;
+}
+
+.sizep {
+	font-weight: 600;
+	font-family: Raine-HorneRegular !important;
+	background: #000;
+	color: #fff;
+	padding: 5px;
+	width: 45%;
+}
+
+.KnowMore {
+	background: rgb(191, 191, 191);
+	background: rgb(144, 144, 144);
+	color: #fff;
+	font-family: Raine-HorneRegular !important;
+	font-size: 18px;
+	text-decoration: none;
+	width: 100%;
+	text-align: center;
+	color: #fff;
+	display: inline-block;
+	padding: 10px;
+	/* position: absolute; */
+	right: 0px;
+	bottom: 0;
+	font-weight: 700;
+
+}
+
+.KnowMore:hover {
+	background: #fcaf17;
+}
+
+#KnowMore {
+	background: rgb(191, 191, 191);
+	background: rgb(144, 144, 144);
+	color: #fff;
+	font-family: Raine-HorneRegular !important;
+	font-size: 18px;
+	text-decoration: none;
+	width: 100%;
+	text-align: center;
+	color: #fff;
+	display: inline-block;
+	padding: 10px;
+	/* position: absolute; */
+	right: 0px;
+	bottom: 0;
+	font-weight: 700;
+
+}
+
+#KnowMore:hover {
+	background: #fcaf17;
+}
+
+#OffProperties {
+	font-family: Raine-HorneRegular !important;
+	font-size: 30px;
+	color: #504d4f !important;
+	margin-left: 140px;
+}

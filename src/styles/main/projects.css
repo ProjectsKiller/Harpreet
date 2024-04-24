@@ -1,0 +1,38 @@
+#div-cards {
+  width: 90%;
+  margin: auto;
+  height: 300px;
+  border-radius: 20px;
+}
+#card-image {
+  height: 300px;
+  width: 800px;
+}
+#card-image:hover {
+  transform: scale(1.5);
+}
+#cardbody {
+  background-color: #e0e3ed;
+}
+#imageContainer {
+  overflow: hidden;
+}
+#circle {
+  height: 50px;
+  width: 50px;
+  border-radius: 50px;
+  background-color: #d2d7e7;
+
+}
+.firstLetter {
+  font-weight: bold;
+  font-size: 20px;
+  text-align: center;
+}
+#circle-name{
+    display:flex;
+}
+.pname{
+    font-size: 22px;
+    font-weight: bold;
+}

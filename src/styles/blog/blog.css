@@ -1,0 +1,78 @@
+@font-face {
+    font-family: Raine-HorneLight;
+    src: url(/public/Font/Raine-HorneLight.otf);
+}
+
+@font-face {
+    font-family: Raine-HorneRegular;
+    src: url(/public/Font/Raine-HorneRegular.otf);
+}
+
+.blog-crousal {
+    -webkit-filter: grayscale(50%);
+    filter: grayscale(50%);
+}
+
+.blog-details {
+    font-family: Raine-HorneLight;
+    font-size: 17px;
+    line-height: 28px;
+    letter-spacing: 0.7px;
+    text-align: justify;
+    color: #fcaf17;
+}
+
+
+.blog-section-divs {
+    border: none;
+    box-shadow: 0.5px 0.5px 5px 5px rgb(233, 233, 233);
+    border-radius: 5px;
+}
+
+.blog-body-details {
+    /* line-height: 24px; */
+    letter-spacing: 0.20px;
+    font-family: Raine-HorneLight;
+    color: #212529;
+    font-size: 19px;
+    font-weight: 400;
+}
+
+.our-team-name {
+    font-family: Raine-HorneRegular;
+    font-size: 19px;
+    color: #504d4f;
+}
+
+.blog-read-more-link {
+    text-decoration: none;
+    color: #fcaf17;
+    font-size: 15px;
+    margin: 0px;
+    padding: 0px;
+}
+
+.main-heading-blog-internal {
+    text-align: center;
+    font-family: Raine-HorneRegular;
+    font-size: 37px;
+    color: #504d4f;
+}
+
+
+.other-blog-heading {
+    margin: 30px 0px;
+    text-align: center;
+    font-family: Raine-HorneRegular;
+    font-weight: 400;
+    font-size: 35px;
+    color: #504d4f;
+}
+.inerblog img.img-fluid {
+    min-height: 228px !important;
+}
+
+
+#blog-mainheading{
+	 font-size: 20px !important;
+}

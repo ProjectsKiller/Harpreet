@@ -1,0 +1,81 @@
+#mort-cal-result-division-row{
+    width: 80%;
+    margin: auto;
+    box-shadow: rgb(222 222 222) 2px 2px 5px 5px;
+    margin-bottom: 40px;
+    background-color: #fff;
+    padding-top: 0px !important;
+    color: black !important;
+  }
+  
+  .left-side-values{
+  display: flex;
+  justify-content: flex-end;
+  }
+  
+  .left-side-years{
+      /* style={{border: "1px solid #e5e7eb",width: "150px",paddingRight: "0px"}} */
+      border: 1px solid #e5e5eb;
+      width: 150px;
+      padding-right: 0px;
+  }
+
+  .css-ey4tw6 {
+    color: #cbcbd4!important;
+}
+  
+  @media only screen and (max-width: 768px){
+  div#mortagecal .row, p#para-mort-cal {
+      width: 100%!important;
+  }}
+  
+  @media only screen and (max-width:768px) {
+      #comment-form	.p-2, #comment-form .col-6 {
+      width: 229px  !important;
+      border-radius: 8px !important;
+  }
+      
+      #comment-form .p-2, #comment-form .col-6 {
+      justify-content: left !important;
+  }
+      
+      
+      #comment-form .col-6 {
+      width: 100% !important;
+  }
+      
+      #comment-form	.p-2 {
+      width: 100% !important;
+      text-align: left;
+  }
+      
+      h1.mt-5.all-head {
+      margin-top: 0px !important;
+  }
+      
+      
+      .p-0.row {
+      margin-top: 30px !important;
+  }
+  p#para-mort-cal {
+      width: 100% !important;
+  }
+      div#mortagecal .row {
+      width: 100% !important;
+  }
+      h1.mt-5.all-head {
+      font-size: 25px !important;
+  }
+}
+  
+.slider {
+    width: 300px;
+    height: 300px;
+    display: flex;
+    overflow-x: auto;
+  }
+  .slide {
+    width: 300px;
+    flex-shrink: 0;
+    height: 100%;
+  }

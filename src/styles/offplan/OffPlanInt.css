@@ -1,0 +1,153 @@
+.banner-new-dev{
+    width: 100%;
+    height: 480px;
+}
+
+.location-prop{
+    width: 100%;
+    height: 400px;
+}
+.loc-feat{
+    height: 50%;
+    margin: auto;
+}
+.rowdes{
+    width: 87%;
+    margin: auto;
+}
+.youtube-prop{
+    width:100%;
+    height: 460px;
+}
+.counter-icon{
+    width: 40px;
+    height: 40px;
+}
+.hotel-icon{
+    width: 25px;
+    height: 25px;
+    margin-top: 8px;
+    margin-right: 8px;
+}
+
+@media screen and (min-width:320px) and (max-width:410px){
+    .banner-new-dev{
+        width: 100%;
+        height: 250px;
+    }
+    .youtube-prop{
+        width: 100%;
+        height: 200px;
+    }
+    .location-prop{
+        width: 100%;
+        height: 200px;
+    }
+    .loc-feat{
+        margin-top: 30px;
+    }
+}
+@media screen and (min-width:410px) and (max-width:650px){
+    .youtube-prop{
+        width: 100%;
+        height: 270px;
+    }
+    .location-prop{
+        width: 100%;
+        height: 250px;
+    }
+    .banner-new-dev{
+        width: 100%;
+        height: 300px;
+    }
+    .loc-feat{
+        margin-top: 30px;
+    }
+    
+}
+@media screen and (min-width:650px) and (max-width:768px){
+    .youtube-prop{
+        width: 100%;
+        height: 320px;
+    } 
+   
+    .banner-new-dev{
+        width: 100%;
+        height: 380px;
+    }
+   
+}
+@media screen and (min-width:768px) and (max-width:992px){
+    .youtube-prop{
+        width: 100%;
+        height: 370px;
+    } 
+    .banner-new-dev{
+        width: 100%;
+        height: 420px;
+    }
+  
+}
+/* Bar Design */
+
+.team{
+    background: #f3f3f3;
+}
+.image-page{
+    width: 45%;
+    margin: auto;
+}
+@media screen and (max-width:400px) {
+    .working-hard{
+        justify-content: center !important;
+       
+        width: 45%;
+        margin: auto;
+    }
+    .image-page{
+        width: 70%;
+        margin: auto;
+    }
+  
+}
+@media screen and (min-width:400px) and (max-width:576px) {
+    .working-hard{
+        justify-content: center !important;
+
+        width: 35%;
+        margin: auto;
+    }
+    .image-page{
+        width: 50%;
+        margin: auto;
+    }
+   
+}
+@media screen and (min-width:576px) and (max-width:767px) {
+    .working-hard{
+        justify-content: center !important;
+
+        width: 35%;
+        margin: auto;
+    }
+    .image-page{
+        width: 30%;
+        margin: auto;
+    }
+  
+}
+@media screen and (min-width:768px) and (max-width:992px) {
+    .image-page{
+        width: 30%;
+        margin: auto;
+    }
+    
+}
+@media  screen and (min-width:992px) {
+    .free-fire{
+        text-align: left !important;
+    }
+    
+}
+
+/* Bar Design */

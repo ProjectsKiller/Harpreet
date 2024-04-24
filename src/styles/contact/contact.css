@@ -1,0 +1,67 @@
+.col-md-4.cont-txt {
+    text-align: center;
+    padding: 40px 20px;
+    border: 1px solid #fcaf17;
+    box-shadow: 0 0 3px 0 rgba(0, 0, 0, .5);
+    margin-right: -20px;
+    border-radius: 10px;
+}
+
+.section-contactboxes {
+    margin: 30px 0;
+}
+
+
+.section-contactboxes a {
+    font-family: Raine-HorneLight;
+    text-decoration: navajowhite;
+    color: #212529;
+    font-size: 18px;
+}
+
+.icon i {
+    background: #fcaf17;
+    padding: 20px;
+    border-radius: 50%;
+    color: #fff;
+    font-size: 24px;
+    /* margin-bottom: 14px; */
+}
+
+.icon {
+    margin-bottom: 26px;
+}
+
+.cont-headings {
+    font-family: Raine-HorneRegular;
+    font-size: 30x;
+    color: #504d4f;
+}
+
+.contText {
+    font-family: Raine-HorneLight;
+    color: #212529;
+    font-size: 18px;
+}
+
+#contus {
+    font-family: Raine-HorneRegular;
+    font-size: 35x;
+    text-align: center;
+}
+
+
+#contParaTxt {
+    font-family: Raine-HorneLight;
+    color: #212529;
+    font-size: 18px;
+}
+
+#formContact {
+    width: 100% !important;
+}
+
+#contactUS {
+    font-size: 50px;
+}
+
