@@ -510,7 +510,8 @@ const SaleDubaipro = () => {
                 </div>
               ) :
                 displayedItems.length ? (
-                  <div className="">
+                //added class "my-mar" by Gagan
+                  <div className="my-mar">
                     <div
                       className="row justify-content-center change-margin"
                     >
